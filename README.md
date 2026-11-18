@@ -19,7 +19,7 @@ In one terminal, run `npm --prefix api start`. In another, run `npm --prefix fro
 
 The `.railway/railway.ts` configuration declares the two GitHub-backed services, healthchecks, private API reference, and a 512 MB persistent volume. Install the Railway CLI, sign in, create a new empty project, and link this repository to that project. Run `railway config plan` to review the configuration, then `railway config apply` to apply it. Generate a public Railway domain for `web` on port 3000; leave the API without a public domain.
 
-Service roots are `/frontend` and `/api`. The frontend builds with `npm run build` and starts with `npm start`; the API starts with `npm start`. `API_URL` is a server-only reference to the API's private domain on port 3001. No frontend rebuild is needed to change its runtime API address. Template deployments carry their own generated domain and private references.
+Service roots are `/frontend` and `/api`. The frontend builds with `npm run build` and starts with `npm start`; the API starts with `npm start`. `API_HOST` is a server-only reference to the API's private domain; the proxy connects on port 3001. No frontend rebuild is needed to change its runtime API address. Template deployments carry their own generated domain and private references.
 
 ## Scope and production changes
 

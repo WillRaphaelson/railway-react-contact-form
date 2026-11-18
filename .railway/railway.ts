@@ -16,7 +16,7 @@ export default defineRailway(() => {
     start: 'npm start',
     healthcheck: '/health',
     deploy: { region: 'us-west2' },
-    env: { API_URL: `http://${api.env.RAILWAY_PRIVATE_DOMAIN}:3001`, PORT: '3000' },
+    env: { API_HOST: api.env.RAILWAY_PRIVATE_DOMAIN, PORT: '3000' },
   });
   return project('react-contact-form', { resources: [web, api, messages] });
 });

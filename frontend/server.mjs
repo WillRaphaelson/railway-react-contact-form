@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { extname, resolve, sep } from 'node:path';
 
 const root = fileURLToPath(new URL('./dist/', import.meta.url));
-const api = process.env.API_URL || 'http://localhost:3001';
+const api = process.env.API_URL || (process.env.API_HOST ? `http://${process.env.API_HOST}:3001` : 'http://localhost:3001');
 const types = { '.html':'text/html; charset=utf-8', '.js':'text/javascript', '.css':'text/css', '.svg':'image/svg+xml', '.png':'image/png', '.ico':'image/x-icon' };
 const json = (res, status, value) => { res.writeHead(status, { 'Content-Type':'application/json', 'Cache-Control':'no-store' }); res.end(JSON.stringify(value)); };
 createServer(async (req, res) => {
